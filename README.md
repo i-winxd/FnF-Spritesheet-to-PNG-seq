@@ -9,3 +9,6 @@ As obvious, select your PNG/XML (it doesn't matter which one), and it will gener
 Currently, this program will only export
 - The first 20 frames of any arrow animation
 - The first 40 frames of all animations but the above
+
+### Also important!
+The only way to close this program (unless it closes itself, e.g. when it is done converting it will exit) is by opening up task manager and closing it through that mehod.
