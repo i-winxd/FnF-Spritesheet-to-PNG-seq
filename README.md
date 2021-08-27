@@ -11,4 +11,7 @@ Currently, this program will only export
 - The first 40 frames of all animations but the above
 
 ### Also important!
-The only way to close this program (unless it closes itself, e.g. when it is done converting it will exit) is by opening up task manager and closing it through that mehod.
+The only way to close this program (unless it closes itself, e.g. when it is done converting it will exit) is by opening up task manager and closing it through that method.
+
+## Very cool, but how do I make GIFs with this thing?
+Google "EzGif PNG sequence to gif" I swear it works exactly how you think it does (remember to adjust the fps though)
