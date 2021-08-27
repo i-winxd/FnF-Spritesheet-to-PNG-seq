@@ -7,6 +7,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -37,7 +38,7 @@ public class ConvertState {
             //    frameLimitArray = limitFramesInput(); // THIS ONE
         frameLimitArray[0] = 40; // if it contains IDLE
         frameLimitArray[1] = 20; // because comamnd prompt isn't working, I will go with this
-        frameLimitArray[2] = 40; // for all customs
+        frameLimitArray[2] = 99; // for all customs
 
         // System.out.println("return = "+frameLimit);
 
@@ -51,6 +52,13 @@ public class ConvertState {
         FileDialog dialog = new FileDialog((Frame) null, "Select XML or PNG File to Open");
         dialog.setMode(FileDialog.LOAD);
         dialog.setVisible(true);
+
+
+   /*
+*/
+
+        // we forget about the file opener here
+
         String filedir = dialog.getDirectory(); // the file directory, excluding thefile itself
         String filename = dialog.getFile(); // gets the file name
 
