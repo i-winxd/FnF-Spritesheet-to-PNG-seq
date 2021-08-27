@@ -7,11 +7,12 @@ As obvious, select your PNG/XML (it doesn't matter which one), and it will gener
 
 ### Important!
 Currently, this program will only export
-- The first 20 frames of any arrow animation
-- The first 40 frames of all animations but the above
+- The first 20 frames of any arrow animation (contains, to lower case "left", "down", "up", "right")
+- The first 40 frames of any idle animation (contains, to lower case "idle")
+- The first 99 frames of all other animations
 
 ### Also important!
 The only way to close this program (unless it closes itself, e.g. when it is done converting it will exit) is by opening up task manager and closing it through that method.
 
 ## Very cool, but how do I make GIFs with this thing?
-Google "EzGif PNG sequence to gif" I swear it works exactly how you think it does (remember to adjust the fps though)
+Google "EzGif PNG sequence to gif" I swear it works exactly how you think it does (remember to adjust the fps though by setting the speed)
