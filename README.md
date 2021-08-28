@@ -16,3 +16,6 @@ The only way to close this program (unless it closes itself, e.g. when it is don
 
 ## Very cool, but how do I make GIFs with this thing?
 Google "EzGif PNG sequence to gif" I swear it works exactly how you think it does (remember to adjust the fps though by setting the speed)
+
+## To do list:
+Add a branch which allows usage of the command line prompt to make changing export frame limits customizable
