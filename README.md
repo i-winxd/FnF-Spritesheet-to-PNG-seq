@@ -7,6 +7,11 @@ As obvious, select your PNG/XML (it doesn't matter which one), and it will gener
 
 For example, if my PNG/XML is in \[...\]/Some FnF mod/assets/shared/images/characters/bob.png, selecting it creates a folder in the same directory as bob.png with the the name "bob". Inside the new "bob" folder, you should see folders of all their animations (e.g. one of them may look like "bob LEFT") 
 
+### Reasons why the program might not work and troubleshooting
+- You didn't select a PNG or XML file
+- You selected a PNG file with no corresponding XML file in the **same** folder, or you selected an XML file with no corresponding PNG
+- There is a folder in the same directory with the same name as your character. **This code just basically stops when it tries to create a folder that already exists** rather than referencing one, and yes, I coded that on purpose.
+
 ### Important!
 Currently, this program will only export
 - The first 20 frames of any arrow animation (contains, to lower case "left", "down", "up", "right")
@@ -20,4 +25,5 @@ The only way to close this program (unless it closes itself, e.g. when it is don
 Google "EzGif PNG sequence to gif" I swear it works exactly how you think it does (remember to adjust the fps though by setting the speed)
 
 ## To do list:
-Add a branch which allows usage of the command line prompt to make changing export frame limits customizable
+- Add a branch which allows usage of the command line prompt to make changing export frame limits customizable
+- Append something to the end of the created folder to indicate that it was generated using this tool
