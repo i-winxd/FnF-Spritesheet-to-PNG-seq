@@ -27,3 +27,6 @@ Google "EzGif PNG sequence to gif" I swear it works exactly how you think it doe
 ## To do list:
 - Add a branch which allows usage of the command line prompt to make changing export frame limits customizable
 - Append something to the end of the created folder to indicate that it was generated using this tool
+
+![image](https://user-images.githubusercontent.com/31808925/131220016-798e5e20-5766-4fa3-8d53-301dc35df733.png)
+
