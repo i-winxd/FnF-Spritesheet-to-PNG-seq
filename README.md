@@ -1,4 +1,4 @@
-# FnFSS2PNG
+# Friday Night Funkin' Spritesheet to PNG sequence (and also GIFs, indirectly)
 Converts a Friday Night Funkin' Spritesheet to a collection of image sequences. Each seperate animation will be outputted to its own folder.
 
 ## How do I use this thing?
