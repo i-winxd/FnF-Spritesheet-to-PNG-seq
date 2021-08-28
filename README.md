@@ -2,7 +2,7 @@
 Converts a Friday Night Funkin' Spritesheet to a collection of image sequences. Each seperate animation will be outputted to its own folder.
 
 ## How do I use this thing?
-When running this program, it will prompt you to load your PNG/XML spritesheet. For the spritesheet you want to target, the PNG and XML file of it **must** be in the same folder.
+**READ THIS THING CAREFULLY!!! THERE ARE "MUST KNOWS" IN THIS!!!** When running this program, it will prompt you to load your PNG/XML spritesheet. For the spritesheet you want to target, the PNG and XML file of it **must** be in the same folder.
 As obvious, select your PNG/XML (it doesn't matter which one), and it will generate a folder in the same directory of the PNG/XML with folders containing image sequences of each animation.
 
 ### Important!
