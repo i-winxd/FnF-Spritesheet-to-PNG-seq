@@ -1,5 +1,5 @@
 # Friday Night Funkin' Spritesheet to PNG sequence (and also GIFs, indirectly)
-Breaks apart a Friday Night Funkin' spritesheet back to its individual components in the form of a PNG sequence.
+Breaks apart a Friday Night Funkin' spritesheet back to its individual components in the form of a PNG sequence. This is intended if you want to work with Friday Night Funkin' animations outside the game, such as uploading animations in GIF format to the Friday Night Funkin' wiki.
 
 ## How do I use this thing?
 **READ THIS THING CAREFULLY!!! THERE ARE "MUST KNOWS" IN THIS!!!** When running this program, it will prompt you to load your PNG/XML spritesheet. For the spritesheet you want to target, the PNG and XML file of it **must** be in the same folder.
@@ -22,7 +22,9 @@ Currently, this program will only export
 The only way to close this program (unless it closes itself, e.g. when it is done converting it will exit) is by opening up task manager and closing it through that method.
 
 ## Very cool, but how do I make GIFs with this thing?
-Google "EzGif PNG sequence to gif" I swear it works exactly how you think it does (remember to adjust the fps though by setting the speed)
+[Here.](https://ezgif.com/maker) This convers PNG sequences to GIFs. Remember that you must select ALL FRAMES when importing the PNG sequence. You must also:
+- Set the delay time to "3"
+- Turn ON "don't stack frames"
 
 ## To do list:
 - Add a branch which allows usage of the command line prompt to make changing export frame limits customizable
