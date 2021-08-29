@@ -1,5 +1,5 @@
 # Friday Night Funkin' Spritesheet to PNG sequence (and also GIFs, indirectly)
-Converts a Friday Night Funkin' Spritesheet to a collection of image sequences. Each seperate animation will be outputted to its own folder.
+Breaks apart a Friday Night Funkin' spritesheet back to its individual components in the form of a PNG sequence.
 
 ## How do I use this thing?
 **READ THIS THING CAREFULLY!!! THERE ARE "MUST KNOWS" IN THIS!!!** When running this program, it will prompt you to load your PNG/XML spritesheet. For the spritesheet you want to target, the PNG and XML file of it **must** be in the same folder.
@@ -27,6 +27,7 @@ Google "EzGif PNG sequence to gif" I swear it works exactly how you think it doe
 ## To do list:
 - Add a branch which allows usage of the command line prompt to make changing export frame limits customizable
 - Append something to the end of the created folder to indicate that it was generated using this tool
+- GIF export support
 
 ![image](https://user-images.githubusercontent.com/31808925/131220016-798e5e20-5766-4fa3-8d53-301dc35df733.png)
 
