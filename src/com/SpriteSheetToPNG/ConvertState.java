@@ -1,13 +1,11 @@
 package com.SpriteSheetToPNG;
 
-import jdk.internal.org.xml.sax.SAXException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,7 +16,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -31,16 +28,17 @@ public class ConvertState {
         int versionNumber = 1;
         System.out.println("Sprite sheet to PNG sequence, version " + versionNumber);
 
-        int frameLimit = 99; //limitFramesInput();
+        // int frameLimit = 99; //limitFramesInput();
 
         int[] frameLimitArray;
         frameLimitArray = new int[3];
-            //    frameLimitArray = limitFramesInput(); // THIS ONE
+        //    frameLimitArray = limitFramesInput(); // THIS ONE
         frameLimitArray[0] = 40; // if it contains IDLE
         frameLimitArray[1] = 20; // because comamnd prompt isn't working, I will go with this
         frameLimitArray[2] = 99; // for all customs
 
         // System.out.println("return = "+frameLimit);
+
 
         // PASSING IN A COMMAND LINE WILL PASS THROUGH AS AN ARGS PARAMETER.
         // This makes your "typed in" split into an array of args, one for each word separated by a space.
@@ -54,8 +52,8 @@ public class ConvertState {
         dialog.setVisible(true);
 
 
-   /*
-*/
+        /*
+         */
 
         // we forget about the file opener here
 
@@ -64,9 +62,9 @@ public class ConvertState {
 
         String fnlc = filename.toLowerCase();
         // If it's a PNG, change the reference to the XML. If it isn't an XML otherwise, stop the program.
-        if(fnlc.endsWith("png")){
+        if (fnlc.endsWith("png")) {
             filename = removeLastFour(filename) + ".xml";
-        } else if(!fnlc.endsWith("xml")){
+        } else if (!fnlc.endsWith("xml")) {
             System.out.println("You didn't select a PNG or an XML. Exiting program.");
             System.exit(69420);
         }
@@ -114,7 +112,6 @@ public class ConvertState {
             doc.getDocumentElement().normalize();
 
 
-
             // get <staff>
             NodeList list = doc.getElementsByTagName("SubTexture");
 
@@ -156,39 +153,46 @@ public class ConvertState {
                     System.out.println("width: " + frameWidth + " height:" + frameHeight);
                     // DEBUG END
 */
-int frameWidth;
-int frameHeight;
-int frameX;
-int frameY;
-int x;
-int y;
-int width;
-int height;
+                    int frameWidth;
+                    int frameHeight;
+                    int frameX;
+                    int frameY;
+                    int x;
+                    int y;
+                    int width;
+                    int height;
 
                     width = Integer.parseInt(element.getAttribute("width")); // size of the bounding box
                     height = Integer.parseInt(element.getAttribute("height"));
 
-                    // sometimes, the XML may emit framewidths or frameheights. you must catch them to avoid them turning out an error.
+                    // sometimes, the XML may omit framewidths or frameheights. you must catch them to avoid them turning out an error.
 
-                    try { frameWidth = Integer.parseInt(element.getAttribute("frameWidth")); // the width and height of the image being displayed
-                    } catch(NumberFormatException e){
+                    try {
+                        frameWidth = Integer.parseInt(element.getAttribute("frameWidth")); // the width and height of the image being displayed
+                    } catch (NumberFormatException e) {
                         frameWidth = width;
                     }
 
 
-                    try{ frameHeight = Integer.parseInt(element.getAttribute("frameHeight"));
-                    } catch(NumberFormatException e){frameHeight = height;
+                    try {
+                        frameHeight = Integer.parseInt(element.getAttribute("frameHeight"));
+                    } catch (NumberFormatException e) {
+                        frameHeight = height;
                     } //
 
-                  try{   frameX = Integer.parseInt(element.getAttribute("frameX"));
-                  }catch(NumberFormatException e){frameX = 0;
-                  } // adjusts character positioning
-                    try{  frameY = Integer.parseInt(element.getAttribute("frameY"));
-                    }catch(NumberFormatException e){frameY = 0;
+                    try {
+                        frameX = Integer.parseInt(element.getAttribute("frameX"));
+                    } catch (NumberFormatException e) {
+                        frameX = 0;
+                    } // adjusts character positioning
+                    try {
+                        frameY = Integer.parseInt(element.getAttribute("frameY"));
+                    } catch (NumberFormatException e) {
+                        frameY = 0;
                     }
 
-                     x = Integer.parseInt(element.getAttribute("x")); // top left corner of the bounding box
-                     y = Integer.parseInt(element.getAttribute("y"));
+                    x = Integer.parseInt(element.getAttribute("x")); // top left corner of the bounding box
+                    y = Integer.parseInt(element.getAttribute("y"));
 
 
 /*
@@ -202,7 +206,7 @@ int height;
                         // filedir is our directory
                         String foldername = removeLastFour(framename); // something like BfLEFT
 // workDirectory has a backslash appended to it
-                    //    String newdirname = workDirectory + foldername; // directory of our new folder
+                        //    String newdirname = workDirectory + foldername; // directory of our new folder
 
                         String currentAnimationFolder = newFolder(workDirectory, foldername);
 
@@ -214,58 +218,58 @@ int height;
                     // frameLimitArray[0] is used if the animation name contains the word "Idle", otherwise it is frameLimitArray[1]
                     // if that is BELOW the frame limit
                     String lcframename = framename.toLowerCase();
-                    Boolean idling = lcframename.contains("idle"); // true when idle
-                    Boolean lrdu = lcframename.contains("left") || lcframename.contains("right") || lcframename.contains("up") || lcframename.contains("down");
+                    boolean idling = lcframename.contains("idle"); // true when idle
+                    boolean lrdu = lcframename.contains("left") || lcframename.contains("right") || lcframename.contains("up") || lcframename.contains("down");
 
 
                     int frlimit;
-                    if(idling){
+                    if (idling) {
                         frlimit = frameLimitArray[0];
-                    } else if(lrdu) {
+                    } else if (lrdu) {
                         frlimit = frameLimitArray[1];
                     } else {
                         frlimit = frameLimitArray[2];
                     }
 
-                if (animNo <= frlimit) {
-                    int dstx1 = -frameX; // horizontal offset
-                    int dsty1 = -frameY; // vertical offset
-                    int dstx2 = -frameX + width; // horizontal offset second axis
-                    int dsty2 = -frameY + height; // vertical offset second axis
+                    if (animNo <= frlimit) {
+                        int dstx1 = -frameX; // horizontal offset
+                        int dsty1 = -frameY; // vertical offset
+                        int dstx2 = -frameX + width; // horizontal offset second axis
+                        int dsty2 = -frameY + height; // vertical offset second axis
 
-                    int srcx1 = x;
-                    int srcx2 = x + width;
-                    int srcy1 = y;
-                    int srcy2 = y + height;
+                        int srcx1 = x;
+                        int srcx2 = x + width;
+                        int srcy1 = y;
+                        int srcy2 = y + height;
 
-                    BufferedImage image = new BufferedImage(frameWidth, frameHeight, BufferedImage.TYPE_INT_ARGB); // heck it 8 bits image
-                    Graphics2D g2d = image.createGraphics();
-                    // the PNG file is currently a directory. we need an image
-                    System.out.println("source pixels are (" + srcx1 + ", " + srcy1 + ") and (" + srcx2 + ", " + srcy2 + ")");
-                    g2d.drawImage(img, dstx1, dsty1, dstx2, dsty2, srcx1, srcy1, srcx2, srcy2, null);
-
-
-// folderin does not have a backslash appended to the back of it
-
-                    try (FileOutputStream fos = new FileOutputStream(folderin + "\\" + framename + ".png")) {
-                        ImageIO.write(image, "PNG", fos);
-                    } catch (IOException e) {
-
-                        // handle exception
-                    }
-
-                    g2d.dispose();
-                    // folderin is where to export the images to
+                        BufferedImage image = new BufferedImage(frameWidth, frameHeight, BufferedImage.TYPE_INT_ARGB); // heck it 8 bits image
+                        Graphics2D g2d = image.createGraphics();
+                        // the PNG file is currently a directory. we need an image
+                        System.out.println("source pixels are (" + srcx1 + ", " + srcy1 + ") and (" + srcx2 + ", " + srcy2 + ")");
+                        g2d.drawImage(img, dstx1, dsty1, dstx2, dsty2, srcx1, srcy1, srcx2, srcy2, null);
 
 
-                    // create new folder
-                    // direct all paths here
-                    // create image like normal
+                        // folderin does not have a backslash appended to the back of it
 
-                    // put everything in the last folder
-                    // create image like normal
-                    System.out.println(framename);
-                } else System.out.println("Skipping "+ framename);
+                        try (FileOutputStream fos = new FileOutputStream(folderin + "\\" + framename + ".png")) {
+                            ImageIO.write(image, "PNG", fos);
+                        } catch (IOException e) {
+
+                            // handle exception
+                        }
+
+                        g2d.dispose();
+                        // folderin is where to export the images to
+
+
+                        // create new folder
+                        // direct all paths here
+                        // create image like normal
+
+                        // put everything in the last folder
+                        // create image like normal
+                        System.out.println(framename);
+                    } else System.out.println("Skipping " + framename);
 
 
                 }
@@ -277,7 +281,7 @@ int height;
             e.printStackTrace();
         }
 
-       System.out.println("End of program");
+        System.out.println("End of program");
         System.exit(10);
     }
 
@@ -291,7 +295,7 @@ int height;
             Files.createDirectory(thepath);
         } else {
             System.out.println("Directory already exists. Stopping program...");
-           System.exit(200);
+            System.exit(200);
         }
         return newdirname;
 
@@ -305,7 +309,7 @@ int height;
         return result;
     }
 
-    private static int[] limitFramesInput(){
+    private static int[] limitFramesInput() {
         System.out.println("Sprites are usually animated in 24FPS; however, they're mostly done on twos. If your animation is a two-framer, I would type four instead." +
                 "\nBecause idle animations are usually 5 frames, I would at least make this value 10, or to be safe, 20." +
                 "\nThis value is ZERO-BASED. What you type will be seen as what you typed + 1.");
@@ -325,15 +329,15 @@ int height;
                 System.out.println("Below zero! Defaulting to 99...");
                 typedinput = 99;
             }
-        } catch (NumberFormatException e){
-                System.out.println("Not an integer! Setting defaults");
-                typedinput = 99;
-                int[] defaultarray;
-                defaultarray = new int[3];
-                defaultarray[0] = 40;
-                defaultarray[1] = 12;
-                defaultarray[2] = 40;
-                return defaultarray;
+        } catch (NumberFormatException e) {
+            System.out.println("Not an integer! Setting defaults");
+            typedinput = 99;
+            int[] defaultarray;
+            defaultarray = new int[3];
+            defaultarray[0] = 40;
+            defaultarray[1] = 12;
+            defaultarray[2] = 40;
+            return defaultarray;
 
 
         }
@@ -344,7 +348,7 @@ int height;
                 System.out.println("Below zero! Defaulting to typedinput...");
                 nonidleinput = typedinput;
             }
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Not an integer! Defaulting to typedinput");
             nonidleinput = typedinput;
         }
@@ -355,18 +359,16 @@ int height;
                 System.out.println("Below zero! Defaulting to typedinput...");
                 custominput = typedinput;
             }
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Not an integer! Defaulting to typedinput");
             custominput = typedinput;
         }
 
-int limray[];
+        int limray[];
         limray = new int[3];
         limray[0] = typedinput;
         limray[1] = nonidleinput;
         limray[2] = custominput;
-
-
 
 
         System.out.println("Returning...");
