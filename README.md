@@ -31,5 +31,9 @@ The only way to close this program (unless it closes itself, e.g. when it is don
 - Append something to the end of the created folder to indicate that it was generated using this tool
 - GIF export support
 
-![image](https://user-images.githubusercontent.com/31808925/131220016-798e5e20-5766-4fa3-8d53-301dc35df733.png)
+## What do the XML variables mean?
+- `frameWidth/frameHeight` - how big the animation is total, per animation. the size is calculated by the smallest rectangle you can make over all frames of the same animation stacked on top of each other.
+- `frameX/frameY` - mini offset per animation
+- `width/height` - width/height of the single frame.
+- `x/y` - the top left corner of the animation in the base PNG file, per frame.
 
