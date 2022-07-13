@@ -2,7 +2,12 @@
 Breaks apart a Friday Night Funkin' spritesheet back to its individual components in the form of a PNG sequence. This is intended if you want to work with Friday Night Funkin' animations outside the game, such as uploading animations in GIF format to the Friday Night Funkin' wiki.
 
 ## How do I use this thing?
-**READ THIS THING CAREFULLY!!! THERE ARE "MUST KNOWS" IN THIS!!!** When running this program, it will prompt you to load your PNG/XML spritesheet. For the spritesheet you want to target, the PNG and XML file of it **must** be in the same folder.
+
+To run this program, go to releases (https://github.com/i-winxd/FnF-Spritesheet-to-PNG-seq/releases/tag/v1), and download the topmost ZIP file. Extract the .jar file and run it.
+
+You need to have Java installed on your computer to run this program.
+
+When running this program, it will prompt you to load your PNG/XML spritesheet. For the spritesheet you want to target, the PNG and XML file of it **must** be in the same folder.
 As obvious, select your PNG/XML (it doesn't matter which one), and it will generate a folder in the same directory of the PNG/XML with folders containing image sequences of each animation.
 
 For example, if my PNG/XML is in \[...\]/Some FnF mod/assets/shared/images/characters/bob.png, selecting it creates a folder in the same directory as bob.png with the the name "bob". Inside the new "bob" folder, you should see folders of all their animations (e.g. one of them may look like "bob LEFT") 
