@@ -13,15 +13,11 @@ As obvious, select your PNG/XML (it doesn't matter which one), and it will gener
 For example, if my PNG/XML is in \[...\]/Some FnF mod/assets/shared/images/characters/bob.png, selecting it creates a folder in the same directory as bob.png with the the name "bob". Inside the new "bob" folder, you should see folders of all their animations (e.g. one of them may look like "bob LEFT") 
 
 ### Reasons why the program might not work and troubleshooting
+- Your XML file has the encoding set to UTF-16 (when opening the file, change the encoding to UTF-8. No black magic - literally edit one of the fields INSIDE the text contents of the file to say UTF-8. You should see it.)
 - You didn't select a PNG or XML file
 - You selected a PNG file with no corresponding XML file in the **same** folder, or you selected an XML file with no corresponding PNG
 - There is a folder in the same directory with the same name as your character. **This code just basically stops when it tries to create a folder that already exists** rather than referencing one, and yes, I coded that on purpose.
 
-### Important!
-Currently, this program will only export
-- The first 20 frames of any arrow animation (contains, to lower case "left", "down", "up", "right")
-- The first 40 frames of any idle animation (contains, to lower case "idle")
-- The first 99 frames of all other animations
 
 ### Also important!
 The only way to close this program (unless it closes itself, e.g. when it is done converting it will exit) is by opening up task manager and closing it through that method.
